@@ -1,288 +1,241 @@
-# 🏥 Medical Multi-Disease Prediction System
+# 🏥 Health AI - Multiple Disease Prediction Platform
 
-[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-red.svg)](https://streamlit.io/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
+A modern, full-stack web application that uses Machine Learning to predict the risk of four critical diseases: **Diabetes**, **Heart Disease**, **Parkinson's Disease**, and **Stroke**.
 
-> A comprehensive comparative analysis of conventional versus advanced machine learning algorithms for multi-disease prediction across three distinct medical conditions.
+Built with a **React** frontend, **FastAPI** backend, and trained using **scikit-learn** models on real-world healthcare datasets.
 
-## 📋 Table of Contents
+---
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Diseases & Algorithms](#-diseases--algorithms)
-- [Installation](#-installation)
-- [Project Structure](#-project-structure)
-- [Usage](#-usage)
-- [Datasets](#-datasets)
-- [Model Performance](#-model-performance)
-- [Key Findings](#-key-findings)
-- [Screenshots](#-screenshots)
-- [Contributing](#-contributing)
-- [Authors](#-authors)
-- [License](#-license)
-- [Acknowledgments](#-acknowledgments)
-- [Contact & Support](#-contact--support)
+## 🚀 Features
 
-## 🎯 Overview
+- **4 Individual Prediction Models**: Diabetes, Heart Disease, Parkinson's, and Stroke
+- **Comprehensive Assessment**: Get predictions for all four diseases at once
+- **Model Performance Comparison**: Interactive charts showing accuracy, precision, recall, and F1-scores
+- **Modern, Responsive UI**: Built with React and custom CSS
+- **RESTful API**: FastAPI backend with automatic documentation
+- **Real-time Predictions**: Instant results with confidence scores
 
-Medical diagnosis represents a critical domain where accurate prediction models can significantly impact patient outcomes and healthcare delivery efficiency. This project presents a comprehensive comparative analysis of conventional versus advanced machine learning algorithms for multi-disease prediction.
+---
 
-### 🔬 Research Objectives
+## 🛠️ Tech Stack
 
-- Compare conventional vs. advanced ML algorithms in medical diagnosis
-- Evaluate performance across three distinct medical conditions
-- Challenge traditional algorithmic assumptions in healthcare AI
-- Provide evidence-based guidance for clinical deployment
+### Frontend
 
-## ✨ Features
+- React.js
+- Chart.js & react-chartjs-2 (for visualizations)
+- Modern CSS with glassmorphism effects
 
-- **🔍 Multi-Disease Prediction**: Diabetes, Heart Disease, and Parkinson's Disease
-- **📊 Interactive Dashboard**: Real-time model performance comparison
-- **🎛️ User-Friendly Interface**: Streamlit-based web application
-- **📈 Comprehensive Analytics**: Confusion matrices, performance metrics, and visualizations
-- **🔄 Model Comparison**: Side-by-side evaluation of conventional vs. advanced algorithms
-- **💡 Clinical Recommendations**: Evidence-based algorithm selection guidance
+### Backend
 
-## 🧬 Diseases & Algorithms
+- FastAPI (Python web framework)
+- Uvicorn (ASGI server)
+- scikit-learn (ML models)
+- Pandas & NumPy (data processing)
 
-| Disease                    | Conventional Algorithm | Advanced Algorithm | Dataset                 |
-| -------------------------- | ---------------------- | ------------------ | ----------------------- |
-| **Diabetes** 🩺            | Logistic Regression    | Random Forest      | Pima Indians Diabetes   |
-| **Heart Disease** ❤️       | Decision Tree          | Gradient Boosting  | UCI Heart Disease       |
-| **Parkinson's Disease** 🧠 | Support Vector Machine | AdaBoost           | Voice Analysis Features |
+### Machine Learning
 
-## 🚀 Installation
+- Logistic Regression
+- Support Vector Machines (SVM)
+- Random Forest
+- Trained on datasets from Kaggle and UCI ML Repository
 
-### Prerequisites
-
-```bash
-Python 3.7+
-pip package manager
-```
-
-### Quick Setup
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/Mohit-Balachander/medical-ml-diagnosis.git
-   cd medical-ml-diagnosis
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the application**
-   ```bash
-   streamlit run app.py
-   ```
-
-### Dependencies
-
-```txt
-streamlit>=1.28.0
-pandas>=1.5.0
-numpy>=1.21.0
-scikit-learn>=1.1.0
-plotly>=5.15.0
-streamlit-option-menu>=0.3.2
-pickle-mixin>=1.0.2
-```
+---
 
 ## 📁 Project Structure
 
 ```
-medical-ml-diagnosis/
-├── 📄 app.py                      # Main Streamlit application
-├── 📄 requirements.txt            # Python dependencies
-├── 📄 README.md                   # Project documentation
-├── 📄 LICENSE                     # MIT License
-├── 📂 saved_models/               # Trained model files
-│   ├── 📂 old/                    # Conventional algorithms
-│   │   ├── diabetes_model.sav
-│   │   ├── heart_disease_model.sav
-│   │   ├── parkinsons_model.sav
-│   │   └── parkinsons_scaler.sav
-│   └── 📂 new/                    # Advanced algorithms
-│       ├── diabetes_model.sav
-│       ├── diabetes_scaler.sav
-│       ├── heart_disease_model.sav
-│       ├── heart_scaler.sav
-│       └── parkinsons_model.sav
-├── 📂 dataset/                    # Medical datasets
-│   ├── diabetes.csv
-│   ├── heart.csv
-│   └── parkinsons.csv
-├── 📂 notebooks/                  # Jupyter notebooks
-    ├── diabetes_analysis.ipynb
-    ├── heart_disease_analysis.ipynb
-    └── parkinsons_analysis.ipynb
-
+MDP-Frontend-Cloud/
+│
+├── frontend/                          # React application
+│   ├── src/
+│   │   ├── App.js                     # Main app component
+│   │   ├── Diabetes.js                # Diabetes prediction page
+│   │   ├── Heart.js                   # Heart disease prediction page
+│   │   ├── Parkinsons.js              # Parkinson's prediction page
+│   │   ├── Stroke.js                  # Stroke prediction page
+│   │   ├── ComprehensiveAssessment.js # All-in-one prediction
+│   │   ├── ModelComparison.js         # Model performance charts
+│   │   └── assets/                    # Images and charts
+│   └── package.json
+│
+├── backend/                           # FastAPI server
+│   ├── main.py                        # API endpoints
+│   ├── requirements.txt               # Python dependencies
+│   ├── saved_models/                  # Trained ML models
+│   │   └── new/
+│   │       ├── diabetes_model.sav
+│   │       ├── heart_disease_model.sav
+│   │       ├── parkinsons_model.sav
+│   │       └── stroke_model.sav
+│   └── dataset/                       # Training datasets
+│
+├── colab_files_to_train_models/       # Jupyter notebooks for training
+├── model_comparisons/                 # Model performance data
+├── Images/                            # Project images
+├── app.py                             # Original Streamlit app (legacy)
+├── .gitignore
+└── README.md
 ```
 
-## 🎮 Usage
+---
 
-### 1. Model Comparison Dashboard
+## ⚙️ Installation & Setup
 
-Access comprehensive performance metrics and visualizations:
+### Prerequisites
 
+- **Python 3.8+** installed
+- **Node.js 14+** and **npm** installed
+- **Git** installed
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Mohit-Balachander/Health-AI-App.git
+cd Health-AI-App
 ```
-Navigate to "Model Comparison Dashboard" in the sidebar
+
+### 2. Set Up the Backend
+
+```bash
+# Navigate to the backend folder
+cd backend
+
+# Create a virtual environment (optional but recommended)
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Run the FastAPI server
+uvicorn main:app --reload
 ```
 
-### 2. Disease Prediction
+Your backend will now be running at `http://127.0.0.1:8000`.
 
-Make individual predictions for each condition:
+### 3. Set Up the Frontend
 
-**Diabetes Prediction:**
+**Important:** Open a new, separate terminal for this step.
 
-- Input: Age, BMI, Glucose levels, etc.
-- Models: Logistic Regression vs Random Forest
+```bash
+# Navigate to the frontend folder
+cd frontend
 
-**Heart Disease Prediction:**
+# Install Node dependencies
+npm install
 
-- Input: Age, Chest Pain Type, Blood Pressure, etc.
-- Models: Decision Tree vs Gradient Boosting
+# Start the React development server
+npm start
+```
 
-**Parkinson's Disease Prediction:**
+Your React app will automatically open in your browser at `http://localhost:3000` (or another port if 3000 is busy).
 
-- Input: Voice analysis parameters (22 features)
-- Models: SVM vs AdaBoost
+---
 
-### 3. Model Version Selection
+## 🎯 Usage
 
-Choose between conventional ("old") and advanced ("new") algorithms using the sidebar selector.
+1. Navigate to `http://localhost:3000` in your browser
+2. Select a disease from the sidebar (Diabetes, Heart, Parkinson's, or Stroke)
+3. Fill in the form with the required health parameters
+4. Click "Predict" to get instant results
+5. View the prediction with confidence score and explanation
+6. Or use the **Comprehensive Assessment** to get predictions for all four diseases at once!
 
-## 📊 Datasets
+---
 
-### Diabetes Dataset (Pima Indians)
+## 📊 Model Performance
 
-- **Size**: 768 samples, 8 features
-- **Features**: Pregnancies, Glucose, Blood Pressure, BMI, etc.
-- **Target**: Binary (Diabetic/Non-diabetic)
+| Disease     | Model               | Accuracy | Precision | Recall | F1-Score |
+| ----------- | ------------------- | -------- | --------- | ------ | -------- |
+| Diabetes    | Logistic Regression | 77.27%   | 71.43%    | 62.50% | 66.67%   |
+| Heart       | SVM                 | 85.25%   | 84.21%    | 88.89% | 86.49%   |
+| Parkinson's | SVM                 | 89.74%   | 100.00%   | 80.00% | 88.89%   |
+| Stroke      | Random Forest       | 95.12%   | 0.00%     | 0.00%  | 0.00%    |
 
-### Heart Disease Dataset (UCI)
+**Note:** The stroke model shows high accuracy due to class imbalance in the dataset.
 
-- **Size**: 303 samples, 13 features
-- **Features**: Age, Sex, Chest Pain Type, Cholesterol, etc.
-- **Target**: Binary (Disease/No Disease)
+---
 
-### Parkinson's Dataset
+## 🌐 API Documentation
 
-- **Size**: 195 samples, 22 features
-- **Features**: Voice frequency parameters, jitter, shimmer
-- **Target**: Binary (Parkinson's/Healthy)
+Once the backend is running, visit `http://127.0.0.1:8000/docs` for the interactive API documentation (Swagger UI).
 
-## 📈 Model Performance
+### Key Endpoints:
 
-### Key Metrics Evaluated
+- `GET /` - Health check
+- `POST /predict/diabetes` - Diabetes prediction
+- `POST /predict/heart` - Heart disease prediction
+- `POST /predict/parkinsons` - Parkinson's prediction
+- `POST /predict/stroke` - Stroke prediction
+- `POST /predict/comprehensive` - All four predictions
 
-- **Accuracy**: Overall prediction correctness
-- **Precision**: Positive prediction accuracy
-- **Recall**: True positive detection rate
-- **F1-Score**: Harmonic mean of precision and recall
+---
 
-### Performance Summary
+## 📚 Data Sources & Credits
 
-| Disease       | Conventional      | Advanced        | Best Performer         |
-| ------------- | ----------------- | --------------- | ---------------------- |
-| Diabetes      | **LogReg: 77.3%** | RF: 76.0%       | Logistic Regression    |
-| Heart Disease | DT: 75.4%         | **GB: 83.6%**   | Gradient Boosting      |
-| Parkinson's   | **SVM: 94.9%**    | AdaBoost: 89.7% | Support Vector Machine |
+All prediction models were trained on publicly available datasets from:
 
-## 🔍 Key Findings
+- [Kaggle](https://www.kaggle.com/)
+- [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php)
 
-### 🏆 Surprising Results
+**Datasets used:**
 
-1. **Conventional Algorithms Excel**: Traditional methods outperformed advanced algorithms in 2/3 cases
-2. **Perfect Recall**: SVM achieved 100% recall for Parkinson's disease detection
-3. **Diabetes Accuracy**: Logistic Regression showed 1.3% higher accuracy than Random Forest
-4. **Heart Disease**: Only category where advanced algorithm (Gradient Boosting) significantly outperformed conventional method
+- Pima Indians Diabetes Database
+- Cleveland Heart Disease Dataset
+- Parkinson's Disease Dataset
+- Stroke Prediction Dataset
 
-### 💡 Clinical Implications
+---
 
-- **Algorithm Selection**: Domain-specific evaluation is crucial
-- **Interpretability**: Conventional algorithms often provide better clinical interpretability
-- **Performance vs Complexity**: More complex doesn't always mean better in medical applications
+## ⚠️ Disclaimer
 
-## 📸 Screenshots
+**This application is for educational and demonstration purposes only** and is not a substitute for professional medical advice, diagnosis, or treatment.
 
-### Dashboard Overview
+Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
 
-![Diabetes Dashboard](/Images/diabetes_prediction.jpg)
-![Heart Dashboard](/Images/heart_disease_prediction.jpg)
-![Parkinsons Dashboard](/Images/parkinsons_prediction.jpg)
+---
 
-### Model Comparison
+## 👨‍💻 Author
 
-![Accuracy Comparison](/Images/Accuracy_Comparison.png)
-![F1 Score Comparison](/Images/F1%20Score%20Comparison.png)
-![Precision Comparison](/Images/Precision_Comparison.png)
-![Recall Comparison](/Images/Recall_Comparison.png)
+**Mohit Balachander**
+
+- GitHub: [@Mohit-Balachander](https://github.com/Mohit-Balachander)
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+Contributions, issues, and feature requests are welcome!
 
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Commit your changes**
-   ```bash
-   git commit -m 'Add amazing feature'
-   ```
-4. **Push to the branch**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-5. **Open a Pull Request**
+Feel free to check the [issues page](https://github.com/Mohit-Balachander/Health-AI-App/issues).
 
-### 📋 Contributing Guidelines
+---
 
-- Follow PEP 8 style guidelines
-- Add tests for new features
-- Update documentation as needed
-- Ensure all tests pass
+## 🔮 Future Enhancements
 
-<!-- ## 🔬 Research Paper
-
-This project is based on our research paper:
-
-> "Comparative Analysis of Conventional versus Advanced Machine Learning Algorithms for Multi-Disease Prediction"
-
-**Abstract**: Medical diagnosis represents a critical domain where accurate prediction models can significantly impact patient outcomes and healthcare delivery efficiency...
--->
-
-## 👥 Authors
-
-- **Mohit Balachander** - _Lead Researcher_ - [Mohit-Balachander](https://github.com/Mohit-Balachander)
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE) – feel free to use, modify, and distribute this software with proper attribution.
-
-## 🙏 Acknowledgments
-
-- UCI Machine Learning Repository for providing datasets
-- Pima Indians Diabetes Database contributors
-- Voice analysis research community
-- Open source machine learning community
-
-## 📞 Contact & Support
-
-- **Email**: mohitbalachander@gmail.com
-- **LinkedIn**: [Mohit Balachander](https://www.linkedin.com/in/mohit-balachander/)
-- **Issues**: [GitHub Issues](https://github.com/Mohit-Balachander/medical-ml-diagnosis/issues)
+- [ ] Deploy to Google Cloud Platform
+- [ ] Add user authentication
+- [ ] Store prediction history
+- [ ] Add more disease models
+- [ ] Improve stroke model performance
+- [ ] Add data visualization for input parameters
+- [ ] Mobile app version
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ for advancing healthcare through AI</sub>
+
+Made with ❤️ and Machine Learning
+
 </div>

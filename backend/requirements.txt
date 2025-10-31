@@ -1,0 +1,15 @@
+# Core web framework
+fastapi
+
+# ASGI server to run the FastAPI app
+uvicorn[standard]
+
+# For loading and using your machine learning models
+scikit-learn
+
+# For data handling and manipulation
+pandas
+numpy
+
+# For data validation in FastAPI
+pydantic
