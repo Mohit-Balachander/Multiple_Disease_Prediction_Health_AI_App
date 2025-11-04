@@ -157,18 +157,25 @@ def calculate_cardiovascular_risk(predictions_dict):
     risk_score = 0
     risk_factors = []
     
-    if predictions_dict.get('Heart', {}).get('prediction') == 1:
+    # Safely check each prediction, handling None values
+    heart_pred = predictions_dict.get('Heart')
+    if heart_pred and heart_pred.get('prediction') == 1:
         risk_score += 40
         risk_factors.append("Direct Heart Disease Risk")
-    if predictions_dict.get('Diabetes', {}).get('prediction') == 1:
+    
+    diabetes_pred = predictions_dict.get('Diabetes')
+    if diabetes_pred and diabetes_pred.get('prediction') == 1:
         risk_score += 25
         risk_factors.append("Diabetes (increases cardiovascular complications)")
-    if predictions_dict.get('Stroke', {}).get('prediction') == 1:
+    
+    stroke_pred = predictions_dict.get('Stroke')
+    if stroke_pred and stroke_pred.get('prediction') == 1:
         risk_score += 30
         risk_factors.append("Stroke Risk (indicates vascular problems)")
     
     # Parkinson's may affect autonomic cardiovascular control
-    if predictions_dict.get('Parkinsons', {}).get('prediction') == 1:
+    parkinsons_pred = predictions_dict.get('Parkinsons')
+    if parkinsons_pred and parkinsons_pred.get('prediction') == 1:
         risk_score += 15
         risk_factors.append("Parkinson's (may affect autonomic cardiovascular control)")
 
