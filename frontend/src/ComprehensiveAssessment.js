@@ -4,11 +4,10 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import ModelSelector from './ModelSelector';
+import { API_URL } from './config';
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
-const API_URL = "http://127.0.0.1:8000";
 
 // Define initial state for the comprehensive form
 const initialFormState = {

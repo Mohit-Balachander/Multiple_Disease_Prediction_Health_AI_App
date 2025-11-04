@@ -5,8 +5,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Tooltip } from "react-tooltip";
 import ModelSelector from "./ModelSelector";
 import OutputPanel from "./OutputPanel";
-
-const API_URL = "http://127.0.0.1:8000";
+import { API_URL } from "./config";
 const initialFormState = {
   Pregnancies: "6",
   Glucose: "148",

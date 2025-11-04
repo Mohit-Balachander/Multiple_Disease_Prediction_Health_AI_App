@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score
 app = FastAPI(title="Health Prediction API", version="2.0.0")
 
 # ============================================
-# UPDATED CORS Configuration for Cloud Deploy
+# CORS Configuration for GitHub Pages and Local Development
 # ============================================
 origins = [
     "http://localhost",
@@ -20,19 +20,18 @@ origins = [
     "http://localhost:3002",
     "http://localhost:5000",
     "http://127.0.0.1:3000",
-    "https://*.web.app",              # Firebase hosting wildcard
-    "https://*.firebaseapp.com",      # Firebase hosting wildcard
-    # Add your specific Firebase URL here after deployment
-    # "https://health-ai-project.web.app",
-    # "https://health-ai-project.firebaseapp.com",
+    "https://mohit-balachander.github.io",  # GitHub Pages
+    "https://*.web.app",
+    "https://*.firebaseapp.com",
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins list above
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_origins=["*"],  # Allow all origins for now
+    allow_credentials=False,  # Set to False when using wildcard
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # --- Data Structures to hold all models, scalers, and their metadata ---
